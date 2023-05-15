@@ -40,7 +40,7 @@ for i in range(n):
 print(np.array(c))
 
 c1=c
-lnn=NN(n,c1)
+
 solutions=[]
 
 ##########################ACO###################################
