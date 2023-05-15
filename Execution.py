@@ -1,6 +1,6 @@
 from kmeans import*
 from ACO1 import*
-n=10
+n=25
 xy=[[random.randint(0,5) for i in range(2)] for j in range(n)]
 r=[0]
 for i in range(1,n):
@@ -41,23 +41,15 @@ print(np.array(c))
 
 c1=c
 lnn=NN(n,c1)
-print("LNN + ",lnn)
-toij= [[random.uniform(0,2) for i in range(n)] for j in range(n)]
 solutions=[]
-for i in range(n):
-    toij[i][i]=0
-for i in range(n):
-    for j in range(n):
-        if(i!=j):
-            toij[i][j]=1/(n*(lnn))
+
 ##########################ACO###################################
 clusters=clustering(n,k,Qj,D,R,r,xy)
-print("cluster initial",clusters)
 clusters=convergence(n,k,Qj,D,R,r,xy,clusters)
+print("cluster final ",clusters)
 for i in clusters:
     if 0 not in i:
         i.append(0)
-print("cluster ",clusters)
 Matrices=[]
 Tournees=[]
 for i in range(len(clusters)):
@@ -76,7 +68,6 @@ for i in range(len(clusters)):
     for j in range(len(Solutions)):
         Tournee_cluster.append(clusters[i][Solutions[j]])
     Tournees.append(Tournee_cluster)
-print("Tournees ",Tournees)
 T=[]
 for i in range(len(Tournees)):
     if(Tournees[i][0]!=0):
@@ -95,7 +86,6 @@ for i in range(len(Tournees)):
     print("Distance de la tournée: ",Distances[i])
     print("____________________________________")
 
-    
-# 0 5 6 3 1 9 0  
+
 
 
