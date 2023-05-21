@@ -84,7 +84,7 @@ Quartiers = ["Kaidi",
 "Cité universitaire CUB3",
 "Cité Universitaire pour filles Baya Hocine (CUB4)",
 "Cité Universitaire pour filles El Alia",
-"CITE EL-DJOR",
+"CITE EL-DJORF",
 "LOG FONC CEM FERROUKHI",
 "Lot. Douzi I",
 "Lot. Douzi II",
@@ -94,15 +94,17 @@ Quartiers = ["Kaidi",
 "Lotissement El Djorf",
 "Maison de retraite de Bab Ezzouar",
 "Résidence universitaire pour fille - 19 mai 1956 / السكن الجامعي لابنته - 19 مايو 1956",
-"Tribou Mahmoud"]
+]
 Quartiers = [x + ", Alger" for x in Quartiers]
+print(Quartiers)
 Coordonnees=[]
 for x in Quartiers:
     n1=nom.geocode(x)
-    #print(n1)
+    print(n1)
     Coordonnees.append([n1.latitude,n1.longitude])
 #print(Coordonnees)
 n=len(Quartiers)
+print("Le nombre de quartiers: ",n)
 D=[[0 for i in range(n)] for j in range(n)]
 for i in range(n):
     for j in range(n):
@@ -165,7 +167,6 @@ def matrice_kmeans(n,c,clusters):
 for i in clusters:
     if 0 not in i:
         i.append(0)
-
 print("cluster final ",clusters)
 print("Matricessssss",matrice_kmeans(n,c,clusters))   
 Matrices=[]
@@ -199,8 +200,18 @@ for i in T:
     for j in range(len(i)-1):
         s=s+c[i[j]][i[j+1]]
     Distances.append(s)
-for i in range(len(Tournees)):
-    print("La tournée: ",T[i])
+#for i in range(len(T)):
+    #print("La tournée: ",T[i])
+#    print("Distance de la tournée: ",Distances[i])
+#    print("____________________________________")
+Itineraires=[]
+for i in range(len(T)):
+    Itineraire=[]
+    for j in range(len(T[i])):
+        Itineraire.append(Quartiers[T[i][j]])
+    Itineraires.append(Itineraire)
+for i in range(len(T)):
+    print("La tournée: ",Itineraires[i])
     print("Distance de la tournée: ",Distances[i])
     print("____________________________________")
 print("Cout total ",sum(Distances))
