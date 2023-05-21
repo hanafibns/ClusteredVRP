@@ -94,9 +94,59 @@ Quartiers = ["Kaidi",
 "Lotissement El Djorf",
 "Maison de retraite de Bab Ezzouar",
 "Résidence universitaire pour fille - 19 mai 1956 / السكن الجامعي لابنته - 19 مايو 1956",
+"Tribou Mahmoud",
+"Cité 237 lgts",
+"Cité CNEP حي الصندوق الوطني للتوفير والاحتياط",
+"Cité Colonel Chaabani",
+"Cité des freres achouri",
+"Cité Fatma Nsoumer",
+"Cité frères Ben Rabah (ex Air Algérie)",
+"Ilot 272",
+"Ilot 275",
+"Ilot 276",
+"ILOT 616",
+"ILOT 617",
+"ILOT 618",
+"ILOT 619",
+"ILOT N°18",
+"ILOT N°19",
+"ILOT N°20",
+"ILOT N°211",
+"ILOT N°225",
+"ILOT N°226",
+"ILOT N°227",
+"ILOT N°228",
+"ILOT N°229",
+"ILOT N°230",
+"ILOT N°231",
+"ILOT N°232",
+"ILOT N°233",
+"ILOT N°234",
+"ILOT N°235",
+"ILOT N°236",
+"ILOT N°237",
+"ILOT N°238",
+"ILOT N°239",
+"ILOT N°240",
+"ILOT N°241",
+"Lot. Abdouni Boualem",
+"Lot. Haouch Attar",
+"Lot. Seddik Ben Yahia",
+"Lotissement Krim Belkacem حي كريم أبو القاسم",
+"Cité 420 logements",
+"Cité Douanière",
+"Cité les palmiers",
+"Cité Souaadia Khaled",
+"Conor",
+"Dar El Beida",
+"El Hamiz",
+"Haouch Nadjma",
+"les orangers",
+"Ben Khelil",
+"El Amel, Dar El Beida"
 ]
 Quartiers = [x + ", Alger" for x in Quartiers]
-print(Quartiers)
+#print(Quartiers)
 Coordonnees=[]
 for x in Quartiers:
     n1=nom.geocode(x)
@@ -117,7 +167,7 @@ for i in range(1,n):
 r1 =[]
 for i in range(n):
     r1.append(r[i])
-print("r = ",r)
+#print("r = ",r)
 Qj= 30
 k=int(sum(r)/Qj)+1
 print("k = ", k)
@@ -137,11 +187,6 @@ N=25
 q0=0.9
 alpha=0.1
 beta=2
-c=[[0 for i in range(n)] for j in range(n)]
-for i in range(n):
-    for j in range(n):
-        if(i!=j):
-            c[i][j]=dist_euc(xy,i,j)
 for i in range(n):
     for j in range(n):
         if(i!=j):
@@ -167,8 +212,8 @@ def matrice_kmeans(n,c,clusters):
 for i in clusters:
     if 0 not in i:
         i.append(0)
-print("cluster final ",clusters)
-print("Matricessssss",matrice_kmeans(n,c,clusters))   
+#print("cluster final ",clusters)
+#print("Matricessssss",matrice_kmeans(n,c,clusters))   
 Matrices=[]
 Tournees=[]
 for i in range(len(clusters)):
@@ -214,4 +259,4 @@ for i in range(len(T)):
     print("La tournée: ",Itineraires[i])
     print("Distance de la tournée: ",Distances[i])
     print("____________________________________")
-print("Cout total ",sum(Distances))
+print("Distance totale ",sum(Distances))
